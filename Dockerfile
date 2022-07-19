@@ -1,4 +1,14 @@
 FROM heroku/heroku:18
+RUN apt-get update && \
+      apt-get -y install sudo
+
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+
+USER docker
+CMD /bin/bash
+
+RUN sudo /opt/eff.org/certbot/venv/local/bin/pip install cryptography interface zope
+
 RUN apt-get update
 RUN apt-get install -y curl git unzip wget
 RUN apt-get install -y python3-pip

@@ -1,7 +1,7 @@
 FROM heroku/heroku:18
 RUN apt-get update
 RUN apt-get install -y curl git unzip wget
-RUN apt-get install python3-pip
+RUN apt-get install -y python3-pip
 RUN pip install --upgrade pip
 RUN pip uninstall pyopenssl
 RUN pip uninstall cryptography

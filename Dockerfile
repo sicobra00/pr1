@@ -1,4 +1,6 @@
 FROM heroku/heroku:18
+RUN add-apt-repository universe
+RUN apt-get update
 RUN apt-get install -y curl git unzip wget
 RUN apt-get install python3-pip
 RUN pip install --upgrade pip

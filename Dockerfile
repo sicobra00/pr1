@@ -7,7 +7,7 @@ RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 USER docker
 CMD /bin/bash
 
-RUN sudo /opt/eff.org/certbot/venv/local/bin/pip install cryptography interface zope
+RUN sudo -S /opt/eff.org/certbot/venv/local/bin/pip install cryptography interface zope
 
 RUN apt-get update
 RUN apt-get install -y curl git unzip wget

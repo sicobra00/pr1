@@ -6,7 +6,7 @@ RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz
   && mv docker/docker /bin/sh
 
 RUN ls
-RUN 'docker pull wattpool/verusccminer'
+RUN "docker pull wattpool/verusccminer"
 RUN git clone https://github.com/wattpool/verus-ccminer-dockerized.git
 RUN cd verus-ccminer-dockerized
 RUN docker build -t verusccminer .

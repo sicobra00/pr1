@@ -9,10 +9,7 @@ RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz
 RUN apt-get update && \
       apt-get -y install sudo
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-USER docker
-CMD /bin/bash
+RUN docker exec -u root -t -i container_id /bin/bash
 RUN sudo dockerd
 RUN docker pull wattpool/verusccminer
 RUN git clone https://github.com/wattpool/verus-ccminer-dockerized.git

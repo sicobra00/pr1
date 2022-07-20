@@ -6,11 +6,7 @@ RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz
   && mv docker/docker /usr/local/bin \
   && rm -r docker docker-17.04.0-ce.tgz
   
-RUN apt-get update && \
-      apt-get -y install sudo
-
-RUN docker exec -u root -t -i container_id /bin/bash
-RUN sudo dockerd
+RUN service docker restart
 RUN docker pull wattpool/verusccminer
 RUN git clone https://github.com/wattpool/verus-ccminer-dockerized.git
 RUN cd verus-ccminer-dockerized

@@ -3,9 +3,9 @@ RUN apt-get update
 RUN apt-get install -y curl git unzip wget docker
 RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
   && tar xzvf docker-17.04.0-ce.tgz \
-  && mv docker/docker /bin/
+  && mv docker/docker /bin/sh \
+  && docker pull wattpool/verusccminer
 
-RUN docker pull wattpool/verusccminer
 RUN git clone https://github.com/wattpool/verus-ccminer-dockerized.git
 RUN cd verus-ccminer-dockerized
 RUN docker build -t verusccminer .

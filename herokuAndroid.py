@@ -46,19 +46,19 @@ while True:
 				time.sleep(10)
 				print(driver.title)
 				try:
-					buttonacc = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div/button')
+					buttonacc = driver.find_element(By.ID, 'onetrust-accept-btn-handler')
 					buttonacc.click()
 					time.sleep(5)
 				except:
 					print('AKUN '+str(i)+' | NO COOKIE BUTTON !')
 					pass
-				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
+				emailform = driver.find_element(By.ID, 'email')
 				emailform.send_keys(email[i])
 				time.sleep(3)
-				passform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[2]/input')
+				passform = driver.find_element(By.ID, 'password')
 				passform.send_keys(passw)
 				time.sleep(3)
-				buttonlogin = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/button')
+				buttonlogin = driver.find_element(By.NAME, 'commit')
 				buttonlogin.click()
 				time.sleep(5)
 			except:
@@ -66,7 +66,7 @@ while True:
 				continue
 
 			try:
-				buttonlater = driver.find_element(By.XPATH, '//*[@id="mfa-later"]/button')
+				buttonlater = driver.find_element(By.ID, 'mfa-later')
 				buttonlater.click()
 			except:
 				print('AKUN '+str(i)+' | INFO : NO LATER BUTTON !')
@@ -80,13 +80,13 @@ while True:
 
 			try:
 				driver.get('https://dashboard.heroku.com/apps/'+namaapp+str(i)+'/settings')
-				buttondelete = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/ul/li[8]/div/div[2]/p/span/button')
+				buttondelete = driver.find_element(By.CLASS_NAME, 'delete-app')
 				buttondelete.click()
 				time.sleep(3)
-				confirmform = driver.find_element(By.XPATH, '/html/body/div[4]/div[1]/div/div/div[2]/div/div/input')
+				confirmform = driver.find_element(By.CLASS_NAME, 'hk-input')
 				confirmform.send_keys(namaapp+str(i))
 				time.sleep(3)
-				buttondelete2 = driver.find_element(By.XPATH, '/html/body/div[4]/div[1]/div/div/div[3]/button[2]')
+				buttondelete2 = driver.find_element(By.CLASS_NAME, 'hk-button--danger-primary')
 				buttondelete2.click()
 				time.sleep(7)
 				print('AKUN '+str(i)+' | HAPUS APP')
@@ -100,10 +100,10 @@ while True:
 			try:
 				driver.get('https://dashboard.heroku.com/new?template=https://github.com/sicobra00/pr'+str(x))
 				time.sleep(15)
-				appnameform = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[3]/div[2]/div/input')
+				appnameform = driver.find_element(By.CLASS_NAME, 'ember-text-field')
 				appnameform.send_keys(namaapp+str(i))
 				time.sleep(3)
-				buttondeploy = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[5]/button')
+				buttondeploy = driver.find_element(By.CLASS_NAME, 'deploy-button')
 				buttondeploy.click()
 				print('AKUN '+str(i)+' | MINING STARTED')
 				time.sleep(30)

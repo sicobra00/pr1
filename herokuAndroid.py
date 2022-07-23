@@ -42,6 +42,13 @@ while True:
 				driver.implicitly_wait(30)
 				print('AKUN '+str(i)+' | START HEROKU')
 				driver.get('https://heroku.com/login')
+				time.sleep(10)
+				try:
+					buttonacc = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div/button')
+					buttonacc.click()
+					time.sleep(5)
+				except:
+					pass
 				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
 				emailform.send_keys(email[i])
 				time.sleep(3)

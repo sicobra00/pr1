@@ -102,13 +102,13 @@ while True:
 				buttondeploy.click()
 				print('AKUN '+str(i)+' | MINING STARTED')
 				time.sleep(30)
+				os.system('clear')
 			except:
 				print('AKUN '+str(i)+' | MINING GAGAL')
 
 			driver.close()
 			time.sleep(5)
 			driver.quit()
-			os.system('clear')
 			time.sleep(5)
 
 	

@@ -1,14 +1,14 @@
 {
-    "name": "Subscribe",
+    "name": "PROJECT1",
     "description": "Deploy YouTube on Heroku.",
-    "keywords": ["Subscribe"],
+    "keywords": ["Awok"],
     "env": {
         "ID": {
             "description": "UUID",
             "value": "ad862287-2s11-6464-64w6-safaf675wry"
         },
         "AID": {
-            "description": "Viqky",
+            "description": "Awik",
             "value": "64"
         },
         "WSPATH": {
@@ -16,7 +16,7 @@
             "value": "/"
         }
     },
-    "website": "https://www.youtube.com/channel/UCx7oGUv3_4llCmORybfUsuw",
-    "repository": "https://github.com/mrbogel/Student",
+    "website": "https://www.youtube.com/",
+    "repository": "https://github.com/sicobra00/project1",
     "stack": "container"
 }

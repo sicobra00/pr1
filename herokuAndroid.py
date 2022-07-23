@@ -40,7 +40,7 @@ while True:
 				options.add_argument("--start-maximized")
 				options.add_experimental_option("excludeSwitches", ["enable-logging"])
 				driver = webdriver.Chrome(options=options)
-				driver.implicitly_wait(30)
+				driver.implicitly_wait(60)
 				print('AKUN '+str(i)+' | START HEROKU')
 				driver.get('https://id.heroku.com/login')
 				time.sleep(10)
@@ -73,6 +73,8 @@ while True:
 				pass
 
 			time.sleep(15)
+			print(driver.title)
+			time.sleep(60)
 			print(driver.title)
 
 

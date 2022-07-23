@@ -48,6 +48,7 @@ while True:
 					buttonacc.click()
 					time.sleep(5)
 				except:
+					print('AKUN '+str(i)+' | NO COOKIE BUTTON !')
 					pass
 				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
 				emailform.send_keys(email[i])

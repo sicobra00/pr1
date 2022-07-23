@@ -48,14 +48,12 @@ while True:
 				try:
 					buttonacc = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div/button')
 					buttonacc.click()
-					print(buttonacc)
 					time.sleep(5)
 				except:
 					print('AKUN '+str(i)+' | NO COOKIE BUTTON !')
 					pass
 				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
 				emailform.send_keys(email[i])
-				print(emailform)
 				time.sleep(3)
 				passform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[2]/input')
 				passform.send_keys(passw)
@@ -75,7 +73,7 @@ while True:
 				pass
 
 			time.sleep(15)
-			print('AKUN '+str(i)+' | LOGIN SUCCESS')
+			print(driver.title)
 
 
 			try:
@@ -91,6 +89,7 @@ while True:
 				time.sleep(7)
 				print('AKUN '+str(i)+' | HAPUS APP')
 			except:
+				print(driver.title)
 				print('AKUN '+str(i)+' | INFO : APP TIDAK ADA')
 				pass
 
@@ -108,6 +107,7 @@ while True:
 				time.sleep(30)
 				os.system('clear')
 			except:
+				print(driver.title)
 				print('AKUN '+str(i)+' | MINING GAGAL')
 
 			driver.close()

@@ -36,21 +36,26 @@ while True:
 			try:
 				options = webdriver.ChromeOptions()
 				options.add_argument("--headless")
+				options.add_argument("--no-sandbox")
+				options.add_argument("--start-maximized")
 				options.add_experimental_option("excludeSwitches", ["enable-logging"])
 				driver = webdriver.Chrome(options=options)
 				driver.implicitly_wait(30)
 				print('AKUN '+str(i)+' | START HEROKU')
 				driver.get('https://id.heroku.com/login')
 				time.sleep(10)
+				print(driver.title)
 				try:
 					buttonacc = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div/button')
 					buttonacc.click()
+					print(buttonacc)
 					time.sleep(5)
 				except:
 					print('AKUN '+str(i)+' | NO COOKIE BUTTON !')
 					pass
 				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
 				emailform.send_keys(email[i])
+				print(emailform)
 				time.sleep(3)
 				passform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[2]/input')
 				passform.send_keys(passw)

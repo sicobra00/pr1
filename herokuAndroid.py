@@ -40,7 +40,7 @@ while True:
 		options.add_argument("--no-sandbox")
 		options.add_experimental_option("excludeSwitches", ["enable-logging"])
 		driver = webdriver.Chrome(options=options)
-		driver.implicitly_wait(15)
+		driver.implicitly_wait(25)
 		print('AKUN '+str(i)+' | START HEROKU')
 		driver.get('https://heroku.com/login')
 		emailform = driver.find_element(By.XPATH, '//*[@id="email"]')
@@ -53,8 +53,13 @@ while True:
 		buttonlogin.click()
 		print('AKUN '+str(i)+' | LOGIN....')
 		time.sleep(5)
-		buttonlater = driver.find_element(By.XPATH, '//*[@id="mfa-later"]/button')
-		buttonlater.click()
+
+		try:
+			buttonlater = driver.find_element(By.XPATH, '//*[@id="mfa-later"]/button')
+			buttonlater.click()
+		except:
+			pass
+
 		time.sleep(15)
 
 

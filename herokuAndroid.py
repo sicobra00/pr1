@@ -36,12 +36,11 @@ while True:
 			try:
 				options = webdriver.ChromeOptions()
 				options.add_argument("--headless")
-				options.add_argument("--no-sandbox")
 				options.add_experimental_option("excludeSwitches", ["enable-logging"])
 				driver = webdriver.Chrome(options=options)
 				driver.implicitly_wait(30)
 				print('AKUN '+str(i)+' | START HEROKU')
-				driver.get('https://heroku.com/login')
+				driver.get('https://id.heroku.com/login')
 				time.sleep(10)
 				try:
 					buttonacc = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div/button')

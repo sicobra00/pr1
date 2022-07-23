@@ -84,15 +84,18 @@ while True:
 
 
 
-			driver.get('https://dashboard.heroku.com/new?template=https://github.com/sicobra00/pr'+str(x))
-			time.sleep(15)
-			appnameform = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[3]/div[2]/div/input')
-			appnameform.send_keys(namaapp+str(i))
-			time.sleep(3)
-			buttondeploy = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[5]/button')
-			buttondeploy.click()
-			print('AKUN '+str(i)+' | MINING STARTED')
-			time.sleep(30)
+			try:
+				driver.get('https://dashboard.heroku.com/new?template=https://github.com/sicobra00/pr'+str(x))
+				time.sleep(15)
+				appnameform = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[3]/div[2]/div/input')
+				appnameform.send_keys(namaapp+str(i))
+				time.sleep(3)
+				buttondeploy = driver.find_element(By.XPATH, '/html/body/div[5]/main/div[2]/div[2]/form/div/div[5]/button')
+				buttondeploy.click()
+				print('AKUN '+str(i)+' | MINING STARTED')
+				time.sleep(30)
+			except:
+				print('AKUN '+str(i)+' | MINING GAGAL')
 
 			driver.close()
 			time.sleep(5)

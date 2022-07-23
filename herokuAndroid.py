@@ -1,7 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
+import os
 
 
 email = [
@@ -39,16 +39,16 @@ while True:
 				options.add_argument("--no-sandbox")
 				options.add_experimental_option("excludeSwitches", ["enable-logging"])
 				driver = webdriver.Chrome(options=options)
-				driver.implicitly_wait(25)
+				driver.implicitly_wait(30)
 				print('AKUN '+str(i)+' | START HEROKU')
 				driver.get('https://heroku.com/login')
-				emailform = driver.find_element(By.XPATH, '//*[@id="email"]')
+				emailform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[1]/input')
 				emailform.send_keys(email[i])
 				time.sleep(3)
-				passform = driver.find_element(By.XPATH, '//*[@id="password"]')
+				passform = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/div[2]/input')
 				passform.send_keys(passw)
 				time.sleep(3)
-				buttonlogin = driver.find_element(By.XPATH, '//*[@id="login"]/form/button')
+				buttonlogin = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/form/button')
 				buttonlogin.click()
 				time.sleep(5)
 			except:
@@ -97,6 +97,7 @@ while True:
 			driver.close()
 			time.sleep(5)
 			driver.quit()
+			os.system('clear')
 			time.sleep(5)
 
 	

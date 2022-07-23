@@ -33,23 +33,27 @@ namaapp = 'minerbenak' #ganti tiap sesi
 while True:
 	for x in range (9, 12):
 		for i in range(1, len(email)):
-			options = webdriver.ChromeOptions()
-			options.add_argument("--headless")
-			options.add_argument("--no-sandbox")
-			options.add_experimental_option("excludeSwitches", ["enable-logging"])
-			driver = webdriver.Chrome(options=options)
-			driver.implicitly_wait(25)
-			print('AKUN '+str(i)+' | START HEROKU')
-			driver.get('https://heroku.com/login')
-			emailform = driver.find_element(By.XPATH, '//*[@id="email"]')
-			emailform.send_keys(email[i])
-			time.sleep(3)
-			passform = driver.find_element(By.XPATH, '//*[@id="password"]')
-			passform.send_keys(passw)
-			time.sleep(3)
-			buttonlogin = driver.find_element(By.XPATH, '//*[@id="login"]/form/button')
-			buttonlogin.click()
-			time.sleep(5)
+			try:
+				options = webdriver.ChromeOptions()
+				options.add_argument("--headless")
+				options.add_argument("--no-sandbox")
+				options.add_experimental_option("excludeSwitches", ["enable-logging"])
+				driver = webdriver.Chrome(options=options)
+				driver.implicitly_wait(25)
+				print('AKUN '+str(i)+' | START HEROKU')
+				driver.get('https://heroku.com/login')
+				emailform = driver.find_element(By.XPATH, '//*[@id="email"]')
+				emailform.send_keys(email[i])
+				time.sleep(3)
+				passform = driver.find_element(By.XPATH, '//*[@id="password"]')
+				passform.send_keys(passw)
+				time.sleep(3)
+				buttonlogin = driver.find_element(By.XPATH, '//*[@id="login"]/form/button')
+				buttonlogin.click()
+				time.sleep(5)
+			except:
+				print('AKUN '+str(i)+' | LOGIN GAGAL')
+				continue
 
 			try:
 				buttonlater = driver.find_element(By.XPATH, '//*[@id="mfa-later"]/button')

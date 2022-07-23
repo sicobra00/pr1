@@ -59,7 +59,7 @@ while True:
 				buttonlater = driver.find_element(By.XPATH, '//*[@id="mfa-later"]/button')
 				buttonlater.click()
 			except:
-				print('AKUN '+str(i)+' | INFO : ',sys.exc_info()[1])
+				print('AKUN '+str(i)+' | INFO : NO LATER BUTTON !')
 				pass
 
 			time.sleep(15)
@@ -79,7 +79,7 @@ while True:
 				time.sleep(7)
 				print('AKUN '+str(i)+' | HAPUS APP')
 			except:
-				print('AKUN '+str(i)+' | INFO : ',sys.exc_info()[1])
+				print('AKUN '+str(i)+' | INFO : APP TIDAK ADA')
 				pass
 
 
@@ -94,7 +94,7 @@ while True:
 				print('AKUN '+str(i)+' | MINING STARTED')
 				time.sleep(30)
 			except:
-				print('AKUN '+str(i)+' | INFO : ',sys.exc_info()[1])
+				print('AKUN '+str(i)+' | INFO : MINING GAGAL')
 				pass
 			driver.close()
 			time.sleep(5)
